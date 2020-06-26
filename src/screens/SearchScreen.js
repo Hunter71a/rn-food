@@ -10,8 +10,16 @@ const SearchScreen = () => {
   const [results, setResults] = useState([]);
 
   const searchYelpApi = async () => {
-    const response = await yelp.get('/search');
-    response.data.businesses
+    const response = await yelp.get('/search', {
+      paramms: {
+        limit: 50,
+        term: query,
+        location: 'columbus'
+
+      }
+    });
+   
+   setResults(response.data.businesses);
   };
 
   return <View style={styles.pageStyle}>
