@@ -24,8 +24,8 @@ const SearchScreen = () => {
 
 
 
-  return <ScrollView>
-    <View style={styles.pageStyle}>
+  return (
+    <>
       <SearchBar
         query={query}
         onQueryChange={setQuery}
@@ -34,37 +34,39 @@ const SearchScreen = () => {
       // more verbose but equivalent syntax!!
       // onQueryChange={newQuery => setQuery(newQuery)}
       // submitQuery={() => searchYelpApi()}
-
       />
-      {errorMessage ? <Text>{errorMessage}</Text> : null}
-      <View style={styles.card}>
-        <Text> Searching for: {query}</Text>
-        <Text> We Have Found {results.length} results</Text>
-        <Text> *******  example results  *******</Text>
-      </View>
-      <ResultsList
-        title="Cost Effective"
-        results={filterResultsByPrice('$')}
-      />
-      <ResultsList
-        title="Bit Pricier"
-        results={filterResultsByPrice('$$')}
-      />
-      <ResultsList
-        title="Big Spender"
-        results={filterResultsByPrice('$$$')}
-      />
-    </View>
-  </ScrollView>
+      <ScrollView>
+        {errorMessage ? <Text>{errorMessage}</Text> : null}
+        <View style={styles.card}>
+          <Text> Searching for: {query}</Text>
+          <Text> We Have Found {results.length} results</Text>
+          <Text> *******  example results  *******</Text>
+        </View>
+        <ResultsList
+          title="Cost Effective"
+          results={filterResultsByPrice('$')}
+        />
+        <ResultsList
+          title="Bit Pricier"
+          results={filterResultsByPrice('$$')}
+        />
+        <ResultsList
+          title="Big Spender"
+          results={filterResultsByPrice('$$$')}
+        />
+      </ScrollView>
+    </>
+  )
 };
 
 const styles = StyleSheet.create({
   pageStyle: {
     backgroundColor: '#FFF',
+    flex: 1,
   },
   card: {
     marginLeft: 20,
-    marginBottom: 10,
+    marginBottom: 10
   },
 
 });
