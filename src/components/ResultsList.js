@@ -11,6 +11,7 @@ const ResultsList = ({title, results}) => {
       showsHorizontalScrollIndicator={false}
       data={results}
       keyExtractor={(result)=> results.id}
+      
       renderItem={({item}) => {
         return <ResultsDetail result={item}/>;
       }}
