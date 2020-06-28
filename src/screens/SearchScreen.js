@@ -8,11 +8,11 @@ import useResults from '../hooks/useResults';
 import ResultsList from '../components/ResultsList';
 
 
-const SearchScreen = () => {
+const SearchScreen = (props) => {
+  console.log(props)
   const [query, setQuery] = useState('');
   const [searchYelpApi, results, errorMessage] = useResults();
 
-  console.log(results);
 
   const filterResultsByPrice = (price) => {
     // price === '$' || "$$" || '$$'
