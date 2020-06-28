@@ -8,8 +8,8 @@ import useResults from '../hooks/useResults';
 import ResultsList from '../components/ResultsList';
 
 
-const SearchScreen = (props) => {
-  console.log(props)
+const SearchScreen = () => {
+  // console.log(props)
   const [query, setQuery] = useState('');
   const [searchYelpApi, results, errorMessage] = useResults();
 
@@ -24,7 +24,7 @@ const SearchScreen = (props) => {
 
 
 
-    return (
+  return (
     <View style={styles.pageStyle}>
       <SearchBar
         query={query}
@@ -35,30 +35,31 @@ const SearchScreen = (props) => {
       // onQueryChange={newQuery => setQuery(newQuery)}
       // submitQuery={() => searchYelpApi()}
       />
-        <ScrollView>
-      {errorMessage ? <Text>{errorMessage}</Text> : null}
-      <View style={styles.card}>
-        <Text> Searching for: {query}</Text>
-        <Text> We Have Found {results.length} results</Text>
-        <Text> *******  example results  *******</Text>
-      </View>
-      <ResultsList
-        title="Cost Effective"
-        results={filterResultsByPrice('$')}
-      />
-      <ResultsList
-        title="Bit Pricier"
-        results={filterResultsByPrice('$$')}
-      />
-      <ResultsList
-        title="Big Spender"
-        results={filterResultsByPrice('$$$')}
-      />
-        </ScrollView>
+      <ScrollView>
+        {errorMessage ? <Text>{errorMessage}</Text> : null}
+        <View style={styles.card}>
+          <Text> Searching for: {query}</Text>
+          <Text> We Have Found {results.length} results</Text>
+          <Text> *******  example results  *******</Text>
+        </View>
+        <ResultsList
+          title="Cost Effective"
+          results={filterResultsByPrice('$')}
+        />
+        <ResultsList
+          title="Bit Pricier"
+          results={filterResultsByPrice('$$')}
+        />
+        <ResultsList
+          title="Big Spender"
+          results={filterResultsByPrice('$$$')}
+        />
+      </ScrollView>
     </View>
 
 
-    )};
+  )
+};
 
 const styles = StyleSheet.create({
   pageStyle: {
