@@ -39,9 +39,8 @@ const SearchScreen = () => {
         {errorMessage ? <Text>{errorMessage}</Text> : null}
         <View style={styles.card}>
           <Text> Searching for: {query}</Text>
-          <Text> We Have Found {results.length} results</Text>
-          <Text> *******  example results  *******</Text>
-        </View>
+          <Text> We Have Found {results.length} results: </Text>
+                 </View>
         <ResultsList
           title="Cost Effective"
           results={filterResultsByPrice('$')}

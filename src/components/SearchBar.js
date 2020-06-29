@@ -11,7 +11,7 @@ const SearchBar = ({ query, onQueryChange, submitQuery }) => {
     <TextInput
       autoCapitalize='none'
       autoCorrect={false}
-      placeholder='Shut Up, Chump!'
+      placeholder='Search'
       style={styles.inputStyle}
       value={query}
       onChangeText={onQueryChange}
