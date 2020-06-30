@@ -6,9 +6,7 @@ const ResultDetailScreen = ({ navigation }) => {
   const [result, setResult] = useState(null);
   const id = navigation.getParam('id');
 
-  console.log(result);
-
-  const getResult = async (id) => {
+   const getResult = async (id) => {
     // console.log('Searching for this ' + {query});
     // try {
     const response = await yelp.get(`/${id}`);
@@ -29,9 +27,7 @@ const ResultDetailScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text>Result Detail Screen</Text>
-      <Text>{id}</Text>
-      <Text>{result.name}</Text>
+      <Text style={styles.titleStyle}>{result.name}</Text>
       <Text>Price: {result.price}</Text>
       <Text>Ave. Rating: {result.rating}</Text>
       <Text>Number of Reviews: {result.review_count}</Text>
@@ -49,11 +45,16 @@ const ResultDetailScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center'
   },
   image: {
     height: 200,
     width: 300,
   },
+  titleStyle: {
+   fontSize: 16,
+   fontWeight: 'bold'
+  },  
 });
 
 export default ResultDetailScreen;

@@ -16,7 +16,7 @@ const navigator = createStackNavigator({
   {
     initialRouteName: 'Search',
     defaultNavigationOptions: {
-      title: 'Sandusky Restaurant Search'
+      title: 'Colulmbus Restaurant Search'
     }
 
   });
